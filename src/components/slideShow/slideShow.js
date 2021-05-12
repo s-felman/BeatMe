@@ -5,7 +5,9 @@ import Faker from "faker";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import { Carousel } from 'react-responsive-carousel';
 import Carousel from 'react-bootstrap/Carousel';
-
+import namer from "./namer.jpg";
+import bridge from "./bridge.jpg";
+import home from "./home.jpg"
 
 const SlideShow = () => {
 
@@ -17,25 +19,12 @@ const SlideShow = () => {
 
         return (
             <div>
-                {/* <Carousel>
-                <div>
-                    <img src={Faker.image.city()}  />
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src={Faker.image.city()}  />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src={Faker.image.city()}  />
-                    <p className="legend">Legend 3</p>
-                </div>
-            </Carousel> */}
-                <Carousel fade activeIndex={index} onSelect={handleSelect}>
-                    <Carousel.Item interval={500}>
+               
+                <Carousel fade activeIndex={index} onSelect={handleSelect} nextLabel={"הקודם"} prevLabel={"הבא"} >
+                    <Carousel.Item interval={1000}>
                         <img
                             className="d-block w-100"
-                            src={Faker.image.city()}
+                            src={namer}
                             alt="First slide"
                         />
                         <Carousel.Caption>
@@ -43,10 +32,10 @@ const SlideShow = () => {
                             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item interval={500}>
+                    <Carousel.Item interval={1000}>
                         <img
                             className="d-block w-100"
-                            src={Faker.image.abstract()}
+                            src={home}
                             alt="Second slide"
                         />
 
@@ -55,10 +44,10 @@ const SlideShow = () => {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </Carousel.Caption>
                     </Carousel.Item >
-                    <Carousel.Item interval={500}>
+                    <Carousel.Item interval={1000}>
                         <img
                             className="d-block w-100"
-                            src={Faker.image.food()}
+                            src={bridge}
                             alt="Third slide"
                         />
 
