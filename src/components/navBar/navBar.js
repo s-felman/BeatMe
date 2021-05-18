@@ -19,7 +19,7 @@ function NavBar(){
           </Link>
        
       <button type="button" className="btn btn-light btn-lg">משתתף תחרות</button>
-      <Link to="/">  
+      <Link to="/manager">  
       <button type="button" className="btn btn-secondary btn-lg">מנהל תחרות</button>
           </Link>
  

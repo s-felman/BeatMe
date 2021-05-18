@@ -24,10 +24,10 @@ const x=[{image: Faker.image.city(), header: "ddd", details: "asddf"},
 {image: Faker.image.fashion(), header: "ddd", details: "asddf"},
 {image: Faker.image.nature(), header: "ddd", details: "asddf"},
 {image: Faker.image.sports(), header: "ddd", details: "asddf"},
-{image: Faker.image.sports(), header: "ddd", details: "asddf"},
-{image: Faker.image.technics(), header: "dddצצ", details: "asddf"},
-{image: Faker.image.sports(), header: "dחdצצd", details: "asddf"},
-{image: Faker.image.city(), header: "ddd", details: "asddf"},
+// {image: Faker.image.sports(), header: "ddd", details: "asddf"},
+// {image: Faker.image.technics(), header: "dddצצ", details: "asddf"},
+// {image: Faker.image.sports(), header: "dחdצצd", details: "asddf"},
+// {image: Faker.image.city(), header: "ddd", details: "asddf"},
 
 ]
 
