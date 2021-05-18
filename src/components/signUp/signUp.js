@@ -36,7 +36,7 @@ const SignUp=()=>{
               <input type="email" ></input><br/>
               <label>סיסמא</label>
               <input type="password" ></input><br/>
-              <label>אני מאשר קבלת מיילים</label>
+              <label>אנjjי מאשר קבלת מיילים</label>
               <Checkbox></Checkbox><br/>
               <button type="submit">רישום </button>
 
