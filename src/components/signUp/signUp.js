@@ -13,7 +13,7 @@ const SignUp=()=>{
 
     function required(text){
         if(text=""){
-        setNameError("שדה חובה");
+        setNameError(" שדה חובה ");
         return false;
         }
         else {
