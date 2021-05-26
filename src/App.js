@@ -18,7 +18,7 @@ function App() {
     <Route path="/edit" component={Edit} />
     <Route path="/create" component={Create} />
     <Route path="/manager" component={Manager} />
-    <Route path="/team" component={Team} />
+    <Route path="/team" component={(props) => (<Team {...props} cnama={props.cname} />)}/>
   </Switch>
 
     </div>

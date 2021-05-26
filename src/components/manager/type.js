@@ -2,7 +2,7 @@ import React , {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-import Search from "../image/image";
+
 import Faker from "faker";
 import {Link} from 'react-router-dom';
 
@@ -16,7 +16,7 @@ const images = [
   },
   {
     url: Faker.image.sports(),
-    title: 'משימות',
+    title: 'מbbשימות',
     width: '30%',
     path: "/edit"
   },
@@ -120,11 +120,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function ButtonBases() {
+export default function Type(props) {
   const classes = useStyles();
   const [type1,setType]=useState()
- 
-  
+
   return (
     <div className={classes.root}>
       {images.map((image) => (
@@ -132,8 +131,7 @@ export default function ButtonBases() {
           focusRipple
           key={image.title}
           className={classes.image}
-          focusVisibleClassName={classes.focusVisible}
-          style={{
+nn          style={{
             width: image.width,
           }}
         >
@@ -143,7 +141,8 @@ export default function ButtonBases() {
               backgroundImage: `url(${image.url})`,
             }}
           />
-          <span className={classes.imageBackdrop} /><Link to={image.path} onChange={()=>setType(type1=image.path)} >
+          <span className={classes.imageBackdrop} />
+          <Link to={image.path} onChange={()=>setType(type1=image.path)}  >
           <span className={classes.imageButton}>          
             <Typography
               component="span"
@@ -164,7 +163,7 @@ export default function ButtonBases() {
 <div id="container">
 
 </div>*/}  
- <Search selectedType={useState.type1}></Search>
+
     </div> 
  
   );

@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
-const Search = () => {
+const AddUser = () => {
 const [showResults, setShowResults] = React.useState(false)
 const onClick = () => setShowResults(true)
 return (
   <div>
-    <input type="submit" value="Search" onClick={onClick} />
+    <input type="submit" value="הוספת משתמש" onClick={onClick} />
     { showResults ? <Results /> : null }
   </div>
 )
@@ -14,8 +14,13 @@ return (
 
 const Results = () => (
 <div id="results" className="search-results">
-
-  Some Results
+  <form>
+<label>שם משתמש</label>
+<input type="text" ></input><br/>
+<label>כתובת מייל</label>
+ <input type="email" ></input><br/>
+ <button type="submit">הוספה</button>
+ </form>
 </div>
 )
 
@@ -51,4 +56,4 @@ const Results = () => (
  
 // }
 
-export default Search;
+export default AddUser;

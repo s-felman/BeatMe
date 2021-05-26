@@ -1,14 +1,13 @@
 import React from "react"
 
-const Team=()=>{
+const Team=(props)=>{
 
-
+var a= props.cname;
     return(
         <div>
-            <label required>שם לפרויקט</label>
-              <input type="text" ></input><br/>
-              <label>פרטי תחרות</label>
-              <input type="text" ></input><br/>
+            <h2>{a}</h2>
+              <label>פרטי תחרות</label><br/>
+              <textarea type="text" ></textarea>
               <br/>
               <label>שם משתמש להוספה</label>
               <input type="text" ></input><br/>
