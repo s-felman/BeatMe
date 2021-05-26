@@ -1,4 +1,5 @@
 import React from "react"
+import NewUser2 from "../userLogin/userLogin"
 import NewUser from "../newUser/newUser"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';

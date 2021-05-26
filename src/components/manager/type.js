@@ -1,3 +1,4 @@
+
 import React , {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -13,6 +14,7 @@ const images = [
     title: 'חידון',
     width: '40%',
     path: "/edit"
+
   },
   {
     url: Faker.image.sports(),
@@ -37,12 +39,14 @@ const images = [
     title: 'משימות',
     width: '30%',
     path: "/edit"
+
   },
   {
     url: Faker.image.sports(),
     title: 'עבודה',
     width: '30%',
     path: "/edit"
+
   },
 ];
 
@@ -119,7 +123,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 export default function Type(props) {
   const classes = useStyles();
   const [type1,setType]=useState()
@@ -131,7 +134,7 @@ export default function Type(props) {
           focusRipple
           key={image.title}
           className={classes.image}
-nn          style={{
+        style={{
             width: image.width,
           }}
         >
@@ -141,8 +144,10 @@ nn          style={{
               backgroundImage: `url(${image.url})`,
             }}
           />
+
           <span className={classes.imageBackdrop} />
-          <Link to={image.path} onChange={()=>setType(type1=image.path)}  >
+          <Link to={image.path} onChange={()=>setType(type1=image.path)} >
+
           <span className={classes.imageButton}>          
             <Typography
               component="span"
@@ -151,20 +156,20 @@ nn          style={{
               className={classes.imageTitle}
             >
               {image.title}
-              <span className={classes.imageMarked} />  
-            </Typography>
-          </span> </Link>
 
-        </ButtonBase>
-      ))}
-      {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.min.js"></script>
+              <span className={classes.imageMarked} />
+            </Typography>
+          </span> 
+
+        </Link>
+        </ButtonBase>))}
+      
+     </div> );}
+
+
+      /* <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.2/react-dom.min.js"></script>
 
 <div id="container">
 
-</div>*/}  
-
-    </div> 
- 
-  );
-}
+          </div>*/  

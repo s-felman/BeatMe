@@ -6,8 +6,13 @@ import SignUp from "./components/signUp/signUp";
 import Create from "./components/manager/create";
 import Edit from "./components/manager/edit";
 import Manager from "./components/manager/manager";
+import userLogin from "./components/userLogin/userLogin"
+import participant from "./components/participant/participant";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Team from "./components/comptitions/team";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
@@ -18,7 +23,13 @@ function App() {
     <Route path="/edit" component={Edit} />
     <Route path="/create" component={Create} />
     <Route path="/manager" component={Manager} />
+
     <Route path="/team" component={(props) => (<Team {...props} cnama={props.cname} />)}/>
+
+    <Route path="/userlogin" component={userLogin} />
+    <Route path="/participant" component={participant} />
+    <Route path="/team" component={Team} />
+
   </Switch>
 
     </div>
