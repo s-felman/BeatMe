@@ -13,7 +13,7 @@ const SignUp=()=>{
 
     function required(text){
         if(text=""){
-        setNameError(" שדה חובה ");
+        setNameError("שדה חובה");
         return false;
         }
         else {
@@ -23,7 +23,7 @@ const SignUp=()=>{
 
     function password(text) {
         if (text.length < 6) {
-            setPasswordError(" הסיסמא חייבת להכיל לפחות 6 תווים ");
+            setPasswordError("הסיסמא חייבת להכיל לפחות 6 תווים");
             return false;
         }
         else {
