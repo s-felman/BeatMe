@@ -7,7 +7,11 @@ const FooterPage = () => {
       <MDBContainer fluid className="text-center text-md-left footer-content">
         <MDBRow>
           <MDBCol md="6">
+<<<<<<< HEAD
             <h5 className="title">Footer Content</h5>
+=======
+            <h5 className="title">Footer Cתתתontent</h5>
+>>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
             <p>
               Here you can use rows and columns here to organize your footer
               content.

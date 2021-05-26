@@ -1,5 +1,9 @@
 import React from "react"
+<<<<<<< HEAD
 import NewUser from "../userLogin/userLogin"
+=======
+import NewUser from "../newUser/newUser"
+>>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';
 import "./navBar.css"

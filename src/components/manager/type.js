@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -10,16 +11,59 @@ const images = [
     url: Faker.image.sports(),
     title: 'תחרות',
     width: '40%',
+=======
+import React , {useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import Typography from '@material-ui/core/Typography';
+import Search from "../image/image";
+import Faker from "faker";
+import {Link} from 'react-router-dom';
+
+
+const images = [
+  {
+    url: Faker.image.sports(),
+    title: 'חידון',
+    width: '40%',
+    path: "/edit"
+>>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
   },
   {
     url: Faker.image.sports(),
     title: 'משימות',
     width: '30%',
+<<<<<<< HEAD
+=======
+    path: "/edit"
+  },
+  {
+    url: Faker.image.city(),
+    title: 'פרויקט משותף',
+    width: '30%',
+    path: "/team"
+  },
+  {
+    url: Faker.image.cats(),
+    title: 'תחרות',
+    width: '40%',
+    path: "/edit"
+  },
+  {
+    url: Faker.image.animals(),
+    title: 'משימות',
+    width: '30%',
+    path: "/edit"
+>>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
   },
   {
     url: Faker.image.sports(),
     title: 'עבודה',
     width: '30%',
+<<<<<<< HEAD
+=======
+    path: "/edit"
+>>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
   },
 ];
 
@@ -96,9 +140,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+<<<<<<< HEAD
 export default function ButtonBases() {
   const classes = useStyles();
 
+=======
+
+export default function ButtonBases() {
+  const classes = useStyles();
+  const [type1,setType]=useState()
+ 
+  
+>>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
   return (
     <div className={classes.root}>
       {images.map((image) => (
@@ -117,7 +170,11 @@ export default function ButtonBases() {
               backgroundImage: `url(${image.url})`,
             }}
           />
+<<<<<<< HEAD
           <span className={classes.imageBackdrop} />
+=======
+          <span className={classes.imageBackdrop} /><Link to={image.path} onChange={()=>setType(type1=image.path)} >
+>>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
           <span className={classes.imageButton}>          
             <Typography
               component="span"
@@ -126,6 +183,7 @@ export default function ButtonBases() {
               className={classes.imageTitle}
             >
               {image.title}
+<<<<<<< HEAD
               <span className={classes.imageMarked} />
             </Typography>
           </span> 
@@ -133,5 +191,22 @@ export default function ButtonBases() {
         </ButtonBase>
       ))}
     </div>
+=======
+              <span className={classes.imageMarked} />  
+            </Typography>
+          </span> </Link>
+
+        </ButtonBase>
+      ))}
+      {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.2/react-dom.min.js"></script>
+
+<div id="container">
+
+</div>*/}  
+ <Search selectedType={useState.type1}></Search>
+    </div> 
+ 
+>>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
   );
 }
