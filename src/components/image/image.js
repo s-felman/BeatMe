@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React from "react"
-
-=======
 import React from "react";
 import ReactDOM from 'react-dom';
 
@@ -56,4 +52,4 @@ const Results = () => (
 // }
 
 export default Search;
->>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
+

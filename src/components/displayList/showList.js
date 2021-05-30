@@ -21,23 +21,19 @@ const useStyles = makeStyles({
 const ShowList = (props) => {
    
 const x=[{image: Faker.image.city(), header: "ddd", details: "asddf"},
-<<<<<<< HEAD
          {image: Faker.image.fashion(), header: "ddd", details: "asddf"},
          {image: Faker.image.nature(), header: "ddd", details: "asddf"},
          {image: Faker.image.sports(), header: "ddd", details: "asddf"},
-=======
+
 {image: Faker.image.fashion(), header: "ddd", details: "asddf"},
 {image: Faker.image.nature(), header: "ddd", details: "asddf"},
 {image: Faker.image.sports(), header: "ddd", details: "asddf"},
->>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
+
 // {image: Faker.image.sports(), header: "ddd", details: "asddf"},
 // {image: Faker.image.technics(), header: "dddצצ", details: "asddf"},
 // {image: Faker.image.sports(), header: "dחdצצd", details: "asddf"},
 // {image: Faker.image.city(), header: "ddd", details: "asddf"},
-<<<<<<< HEAD
-=======
 
->>>>>>> 0e469265f90968601ad6020d85b24ae16e65ed67
 ]
 
     const classes = useStyles();
