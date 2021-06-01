@@ -4,48 +4,85 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Checkbox } from "@material-ui/core";
 import NavBar from "../navBar/navBar";
 import { Link } from "react-router-dom";
+import signUpAPI from '../../api/loginFunctions'
 
 const SignUp=()=>{
 
-    const [nameError,setNameError]=useState()
-    const [emailError,setEmailError]=useState()
-    const [passwordError,setPasswordError]=useState()
+    const [nameError,setNameError]=useState("")
+    const [emailError,setEmailError]=useState("")
+    const [passwordError,setPasswordError]=useState("")
+    const [phoneError,setPhoneError]=useState("")
+    const [firstName,setFirstName]=useState("")
+    const [lastName,setLastName]=useState("")
+    const [userName,setUserName]=useState("")
+    const [phone,setPhone]=useState("")
+    const [email,setEmail]=useState("")
+    const [password,setPassword]=useState("")
+    const [getEmail,setgetEmail]=useState(false)
 
-    function required(text){
+    function nameErrorFucntion(text){
         if(text=""){
-        setNameError("שדה חובה");
-        return false;
-        }
-        else {
-            return true;
-        }
-    }
-
-    function password(text) {
-        if (text.length < 6) {
-            setPasswordError("הסיסמא חייבת להכיל לפחות 6 תווים");
+            setNameError("שדה חובה");
+            // setFirstName("שדה חובה");
+            // setLastName("שדה חובה");
+            // setUserName("שדה חובה");
             return false;
         }
         else {
+            setNameError("");
+            setLastName(text);
+            setFirstName(text);
+            setUserName(text);
             return true;
         }
     }
 
-    // function email(inputtxt) {
-    //     const mailformat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;;
-    //     if (inputtxt.match(mailformat)) {
-    //         //checks if this email exist
-    //         const temp=AccountsList.accountsList.filter(account=>account.email===inputtxt)
-    //         if(temp.length>0){
-    //         setEmailError("כתובת מייל זו נמצאת בשימוש")
-    //         return false}
-    //         return true;
-    //     }
-    //     else {
-    //         setEmailError("כתובת מייל אינה תקנית");
-    //         return false;
-    //     }
-    // }
+    function passwordErrorFunction(text) {
+        if (text.length < 6) {
+            setPasswordError("הסיסמא חייבת להכיל לפחות 6 תווים");
+            //return false;
+        }
+        else {
+            setPasswordError("")
+            setPassword(text);
+            console.log("pass",password)
+            //return true;
+        }
+    }
+
+    function phoneErrorFuncion(text) {
+        const phoneformat = /^(([0]+(\.[5]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(text.length === 10){
+            if(text.match(phoneformat)){
+                setPhoneError("");
+                setPhone(text);
+                return true;
+            }
+            else{
+                setPhoneError("מספר פלאפון לא תקין");
+                return false;
+            }
+        }
+    }
+
+    function emailErrorFunction(text) {
+        const mailformat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (text.match(mailformat)) {
+            //checks if this email exist
+            //const temp=AccountsList.accountsList.filter(account=>account.email===inputtxt)
+            // if(temp.length>0){
+            //     setEmailError("כתובת מייל זו נמצאת בשימוש")
+            //     return false
+            // }
+            setgetEmail("");
+            setEmail(text);
+            return true;
+        }
+        else {
+            setEmailError("כתובת מייל אינה תקנית");
+            return false;
+        }
+    }
 
     return(
       <div>
@@ -53,25 +90,31 @@ const SignUp=()=>{
           <form>
           <br/> 
               <label required>שם משפחה</label>
-              <input type="text" ></input><br/><br/>
+              <input type="text" id="firstName" onChange={(e)=>nameErrorFucntion(e.target.value)}></input><br/><br/>
+              <span className='error'>{ nameError }</span><br/>
               <label>שם פרטי</label>
-              <input type="text" ></input><br/><br/>
+              <input type="text" onChange={(e)=>nameErrorFucntion(e.target.value)}></input><br/><br/>
+              <span className='error'>{ nameError }</span><br/>
               <label>שם משתמש</label>
-              <input type="text" name="UserName"></input><br/><br/>
+              <input type="text" name="UserName" onChange={(e)=>nameErrorFucntion(e.target.value)}></input><br/><br/>
+              <span className='error'>{ nameError }</span><br/>
               <label>טלפון</label>
-              <input type="text" ></input><br/><br/>
+              <input type="text" onChange={(e)=>phoneErrorFuncion(e.target.value)}></input><br/><br/>
+              <span className='error'>{ phoneError }</span><br/>
               <label>כתובת מייל</label>
-              <input type="email"></input><br/><br/>
+              <input type="email" onChange={(e)=>emailErrorFunction(e.target.value)}></input><br/><br/>
+              <span className='error'>{ emailError }</span><br/>
               <label>סיסמא</label>
-              <input type="password" ></input><br/>
+              <input type="password" onChange={(e)=>passwordErrorFunction(e.target.value)}></input><br/><br/>
+              <span className='error'>{ passwordError }</span><br/>
               <label>אני מאשר קבלת מיילים</label>
-              <Checkbox></Checkbox><br/>
-              <button type="submit" onClick="hhhjhjhjgh">רישום </button><br/><br/>
+              <Checkbox id="getEmail" onChange={(e)=>setgetEmail(e.target.value)}></Checkbox><br/>
+              <button type="submit" onClick={signUpAPI(firstName, lastName, userName, phone, email, password, getEmail)}>רישום </button><br/><br/>
               <Link to="/userlogin">משתמש קיים</Link>
-
           </form>
       </div>  
     )
 
 }
+
 export default SignUp

@@ -1,25 +1,23 @@
-import React from "react"
+import React, { useState, Component } from "react"
+import Create from "../manager/create";
 
-const Team=()=>{
+const Team=(props)=>{
 
+    const [value, setValue] = useState('');
 
-    return(
-        <div>
-            <label required>שם לפרויקט</label>
-              <input type="text" ></input><br/>
-              <label>פרטי תחרות</label>
-              <input type="text" ></input><br/>
-              <br/>
-              <label>שם משתמש להוספה</label>
-              <input type="text" ></input><br/>
-             
-              <label>כתובת מייל</label>
-              <input type="email" ></input><br/>
-              <label>סיסמא</label>
-              <input type="password" ></input><br/>
-           
-              <button type="submit">אישור </button>
+    const onchange = (data) => {
+        setValue(data)
+        console.log("Form>", data);
+    }
+    function componentDidMount() {
+        console.log("received "+this.props.location.state);
+    }
+
+    return (
+        <div >
+            
+           <label>{props.location.state}</label>
         </div>
-    )
+    );
 }
 export default Team
