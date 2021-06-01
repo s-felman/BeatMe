@@ -1,10 +1,12 @@
 import React from "react"
+import CreateProps from "./createProps"
 
-const Votes=()=>{
+const Votes=(props)=>{
 
 
     return(<div>
-        votes
+       <h1>{props.location.state.cname}</h1>
+       <CreateProps></CreateProps>
     </div>)
 }
 

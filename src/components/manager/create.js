@@ -53,12 +53,10 @@ const Create = (props) => {
         onChange={setCname1}  ></input><br />
       <Type2 data={value} onchange={(e) => { onchange(e) }} ></Type2>
       <button>העלאת קובץ אקסל</button>
-      <AddUser selectedType={useState.type1}>הוספת משתמש</AddUser>
-      {/* <Link to={{
-        pathname: "/team",
-        state: {
-            cname: cname }}}> */}
-            <Link to={value}>
+      <AddUser selectedType={useState.type1} cname={cname}>הוספת משתמש</AddUser>
+      <Link to={{
+        pathname: `${value}/${cname}`,
+        state: {cname: cname }}}>
         <button type="submit" >המשך</button>
       </Link>
     </div>

@@ -1,10 +1,11 @@
 import React from "react"
-
-const OneTask=()=>{
+import CreateProps from "./createProps"
+const OneTask=(props)=>{
 
 
     return(<div>
-        oneTask
+       <h1>{props.location.state.cname}</h1>
+       <CreateProps></CreateProps>
     </div>)
 }
 

@@ -4,7 +4,7 @@ export default function loginAPI(userName, password) {
 
     return(
 
-      fetch(`http://localhost:3000/login?user=user1${userName}`)
+      fetch(`http://localhost:3000/login?username=${userName}&password=${password}`)
         .then((res) => res.json())
         .then((data) => console.log(data))
         .catch((err) => {

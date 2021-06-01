@@ -57,14 +57,12 @@ const Type2 = (props) => {
                     <h2>{image.title}</h2>
                     <image>{image.url}</image>
                 </button> </div>))}
-                {/* <Link to={type}>
-                    <button type="submit" > אחרי לחיצה- המשך</button>
-                </Link> */}
                 </div>
     )
     }
 
 export default Type2;
+
 // class Type2 extends Component {
 //     renderList = () => {
 //         return (

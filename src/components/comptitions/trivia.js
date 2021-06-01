@@ -1,10 +1,12 @@
 import React from "react"
+import CreateProps from "./createProps"
 
-const Trivia=()=>{
+const Trivia=(props)=>{
 
 
     return(<div>
-        trivia
+       <h1>{props.location.state.cname}</h1>
+       <CreateProps></CreateProps>
     </div>)
 }
 

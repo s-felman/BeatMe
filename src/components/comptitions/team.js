@@ -1,22 +1,16 @@
-import React, { useState, Component } from "react"
-import Create from "../manager/create";
+import React, { useState } from "react"
+import CreateProps from "./createProps"
 
 const Team=(props)=>{
 
     const [value, setValue] = useState('');
 
-    const onchange = (data) => {
-        setValue(data)
-        console.log("Form>", data);
-    }
-    function componentDidMount() {
-        console.log("received "+this.props.location.state);
-    }
+
 
     return (
         <div >
-            
-           <label>{props.location.state}</label>
+           <h1>{props.location.state.cname}</h1>
+           <CreateProps></CreateProps>
         </div>
     );
 }

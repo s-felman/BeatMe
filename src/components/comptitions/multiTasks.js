@@ -1,10 +1,12 @@
 import React from "react"
+import CreateProps from "./createProps"
 
-const MultiTasks=()=>{
+const MultiTasks=(props)=>{
 
 
     return(<div>
-        multiTasks
+      <h1>{props.location.state.cname}</h1>
+        <CreateProps></CreateProps>
     </div>)
 }
 

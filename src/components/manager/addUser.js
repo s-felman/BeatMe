@@ -1,28 +1,32 @@
-import React from "react";
-import ReactDOM from 'react-dom';
+import React,{useState} from "react";
+import addParticipantAPI from "../../api/managerFunctions"
 
-const AddUser = () => {
-const [showResults, setShowResults] = React.useState(false)
+const AddUser = (props) => {
+const [showResults, setShowResults] = useState(false);
+
 const onClick = () => setShowResults(true)
 return (
   <div>
     <input type="submit" value="הוספת משתמש" onClick={onClick} />
-    { showResults ? <Results /> : null }
+    { showResults ? <Results cname={props.cname}/> : null }
   </div>
 )
 }
 
-const Results = () => (
+const Results = (props) =>{ 
+const [username, setUsername] = useState("");
+const [useremail, setUseremail] = useState("");
+  return(
 <div id="results" className="search-results">
   <form>
 <label>שם משתמש</label>
-<input type="text" ></input><br/>
+<input type="text" onChange={event => setUsername(event.target.value)} ></input><br/>
 <label>כתובת מייל</label>
- <input type="email" ></input><br/>
- <button type="submit">הוספה</button>
+ <input type="email" onChange={event => setUseremail(event.target.value)}></input><br/>
+ <button type="submit" onClick={addParticipantAPI(props.cname,username, useremail)} >הוספה</button>
  </form>
 </div>
-)
+)}
 
 // ReactDOM.render(<Search />, document.querySelector("#container"))
 // import React,{useState} from 'react';
