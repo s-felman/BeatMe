@@ -1,6 +1,5 @@
 import React, { Component, useState } from "react"
 import { connect } from "react-redux"
-import { votes, trivia, team, multiTasks, oneTask } from "../../action";
 import { Link } from 'react-router-dom';
 import Faker from "faker";
 
@@ -46,14 +45,14 @@ const Type2 = (props) => {
 
     const handleChange = event => {
         props.onchange(type);
-        console.log("aaa",event.target.props);
         console.log("bbb",type);
     }
 
+
     return (
         <div>
-            {images.map((image) => (<div  onClick={handleChange} >
-                <button  onClick={()=>setType(image.path)} >
+            {images.map((image) => (<div>
+                <button onClick={(event)=> {handleChange(event);setType(image.path);}}>
                     <h2>{image.title}</h2>
                     <image>{image.url}</image>
                 </button> </div>))}
