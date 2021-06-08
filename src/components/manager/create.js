@@ -6,6 +6,8 @@ import Type from "./type";
 import Team from "../comptitions/team";
 import AddUser from "./addUser";
 import Type2 from "./type2";
+import "./create.css";
+import addParticipantAPI from "../../api/managerFunctions";
 
 
 //class Create extends React.Component {
@@ -31,13 +33,19 @@ const Create = (props) => {
 
   const [value, setValue] = useState('');
   const [cname, setCname] = useState('');
+  const [userList, setUserList] = useState('');
+
+  const onchange2 = (data) => {
+      setUserList(data)
+      console.log("UL>", data);
+  }
 
   const onchange = (data) => {
     setValue(data)
     console.log("from type2", data);
   }
 
-  const setCname1=(event)=>{
+  const setCname1 = (event) => {
     setCname(event.target.value);
     console.log("cname", cname)
   }
@@ -53,11 +61,14 @@ const Create = (props) => {
         onChange={setCname1}  ></input><br />
       <Type2 data={value} onchange={(e) => { onchange(e) }} ></Type2>
       <button>העלאת קובץ אקסל</button>
-      <AddUser selectedType={useState.type1} cname={cname}>הוספת משתמש</AddUser>
+      <AddUser cname={cname} onchange={(e) => {onchange2(e)}}>הוספת משתמש</AddUser>
       <Link to={{
         pathname: `${value}/${cname}`,
-        state: {cname: cname }}}>
-        <button type="submit" >המשך</button>
+        state: { cname: cname }
+      }}>
+        <button className="continue-button" type="submit" 
+        onClick={()=>{addParticipantAPI(cname,userList)}}>
+          <label className="continue-text">המשך</label></button>
       </Link>
     </div>
   );

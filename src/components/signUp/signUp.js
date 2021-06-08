@@ -8,32 +8,54 @@ import signUpAPI from '../../api/loginFunctions'
 
 const SignUp=()=>{
 
-    const [nameError,setNameError]=useState("")
-    const [emailError,setEmailError]=useState("")
-    const [passwordError,setPasswordError]=useState("")
-    const [phoneError,setPhoneError]=useState("")
-    const [firstName,setFirstName]=useState("")
-    const [lastName,setLastName]=useState("")
-    const [userName,setUserName]=useState("")
-    const [phone,setPhone]=useState("")
-    const [email,setEmail]=useState("")
-    const [password,setPassword]=useState("")
-    const [getEmail,setgetEmail]=useState(false)
+    const [fnameError,setFNameError]=useState("");
+    const [lnameError,setLNameError]=useState("");
+    const [unameError,setUNameError]=useState("");
+    const [emailError,setEmailError]=useState("");
+    const [passwordError,setPasswordError]=useState("");
+    const [phoneError,setPhoneError]=useState("");
+    const [firstName,setFirstName]=useState("");
+    const [lastName,setLastName]=useState("");
+    const [userName,setUserName]=useState("");
+    const [phone,setPhone]=useState("");
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
+    const [getEmail,setgetEmail]=useState(false);
 
-    function nameErrorFucntion(text){
-        if(text=""){
-            setNameError("שדה חובה");
-            // setFirstName("שדה חובה");
-            // setLastName("שדה חובה");
-            // setUserName("שדה חובה");
-            return false;
+    function fnameErrorFucntion(text){
+        if(text!=""){  
+            setFNameError("");
+            setFirstName(text);
+
+            //return false;
         }
         else {
-            setNameError("");
+            setFNameError("שדה חובה");    
+            //return true;
+        }
+    }
+    function lnameErrorFucntion(text){
+        if(text!=""){       
+            setLNameError("");
             setLastName(text);
-            setFirstName(text);
+
+            //return false;
+        }
+        else {
+            setLNameError("שדה חובה");
+            //return true;
+        }
+    }
+    function unameErrorFucntion(text){
+        if(text!=""){            
+            setUNameError("");
             setUserName(text);
-            return true;
+
+            //return false;
+        }
+        else {
+            setUNameError("שדה חובה");
+            //return true;
         }
     }
 
@@ -52,18 +74,18 @@ const SignUp=()=>{
 
     function phoneErrorFuncion(text) {
         const phoneformat = /^(([0]+(\.[5]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if(text.length === 10){
-            if(text.match(phoneformat)){
+        if(text.length >= 10){
+            //if(text.match(phoneformat)){
                 setPhoneError("");
                 setPhone(text);
-                return true;
+                //return true;
             }
             else{
                 setPhoneError("מספר פלאפון לא תקין");
-                return false;
+                //return false;
             }
         }
-    }
+//}
 
     function emailErrorFunction(text) {
         const mailformat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -76,11 +98,11 @@ const SignUp=()=>{
             // }
             setgetEmail("");
             setEmail(text);
-            return true;
+            //return true;
         }
         else {
             setEmailError("כתובת מייל אינה תקנית");
-            return false;
+            //return false;
         }
     }
 
@@ -90,14 +112,14 @@ const SignUp=()=>{
           <form>
           <br/> 
               <label required>שם משפחה</label>
-              <input type="text" id="firstName" onChange={(e)=>nameErrorFucntion(e.target.value)}></input><br/><br/>
-              <span className='error'>{ nameError }</span><br/>
+              <input type="text" id="firstName" onChange={(e)=>fnameErrorFucntion(e.target.value)}></input><br/><br/>
+              <span className='error'>{ fnameError }</span><br/>
               <label>שם פרטי</label>
-              <input type="text" onChange={(e)=>nameErrorFucntion(e.target.value)}></input><br/><br/>
-              <span className='error'>{ nameError }</span><br/>
+              <input type="text" onChange={(e)=>lnameErrorFucntion(e.target.value)}></input><br/><br/>
+              <span className='error'>{ lnameError }</span><br/>
               <label>שם משתמש</label>
-              <input type="text" name="UserName" onChange={(e)=>nameErrorFucntion(e.target.value)}></input><br/><br/>
-              <span className='error'>{ nameError }</span><br/>
+              <input type="text" name="UserName" onChange={(e)=>unameErrorFucntion(e.target.value)}></input><br/><br/>
+              <span className='error'>{ unameError }</span><br/>
               <label>טלפון</label>
               <input type="text" onChange={(e)=>phoneErrorFuncion(e.target.value)}></input><br/><br/>
               <span className='error'>{ phoneError }</span><br/>
@@ -109,7 +131,7 @@ const SignUp=()=>{
               <span className='error'>{ passwordError }</span><br/>
               <label>אני מאשר קבלת מיילים</label>
               <Checkbox id="getEmail" onChange={(e)=>setgetEmail(e.target.value)}></Checkbox><br/>
-              <button type="submit" onClick={signUpAPI(firstName, lastName, userName, phone, email, password, getEmail)}>רישום </button><br/><br/>
+              <button type="submit" onClick={()=>{signUpAPI(firstName, lastName, userName, phone, email, password, getEmail)}}>רישום </button><br/><br/>
               <Link to="/userlogin">משתמש קיים</Link>
           </form>
       </div>  
