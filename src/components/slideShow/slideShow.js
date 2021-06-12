@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Faker from "faker";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import { Carousel } from 'react-responsive-carousel';
 import Carousel from 'react-bootstrap/Carousel';
-import namer from "./namer.jpg";
-import bridge from "./bridge.jpg";
-import home from "./home.jpg"
+import pic1 from "./pictures/011.png";
+import pic2 from "./pictures/022.png";
+import pic3 from "./pictures/033.png";
+import "./slideShow.css"
 
 const SlideShow = () => {
 
@@ -21,21 +21,20 @@ const SlideShow = () => {
             <div>
                
                 <Carousel fade activeIndex={index} onSelect={handleSelect} nextLabel={"הקודם"} prevLabel={"הבא"} >
-                    <Carousel.Item interval={1000}>
-                        <img
-                            className="d-block w-100"
-                            src={namer}
-                            alt="First slide"
+                    <Carousel.Item  interval={2000}>
+                        <img 
+                        className="d-block w-100"
+                            src={pic1}
+                        alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h3>First slide label</h3>
                             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item interval={1000}>
+                    <Carousel.Item interval={2000}>
                         <img
                             className="d-block w-100"
-                            src={home}
+                            src={pic2}
                             alt="Second slide"
                         />
 
@@ -44,10 +43,10 @@ const SlideShow = () => {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </Carousel.Caption>
                     </Carousel.Item >
-                    <Carousel.Item interval={1000}>
+                    <Carousel.Item interval={2000}>
                         <img
                             className="d-block w-100"
-                            src={bridge}
+                            src={pic3}
                             alt="Third slide"
                         />
 
@@ -105,3 +104,4 @@ const SlideShow = () => {
     }
     
     export default SlideShow
+    // https://react-bootstrap.github.io/components/carousel/

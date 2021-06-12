@@ -10,11 +10,14 @@ function NavBar(){
 
 
  return(
-<nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-  <div className="container-fluid">
-  <form className="d-flex">
-        <button className="btn btn-outline-success" type="submit">חיפוש</button>
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+<nav className="navBar">
+  <div className="logo"></div>
+  <input className="search"></input>
+  <button className="search-icon"></button>
+  {/* <div className="">
+  <form className="">
+        <button className="search-icon" type="submit">חיפוש</button>
+        <input className="search" type="search" placeholder="Search" aria-label="Search" />
       </form>
       <Link to="/signup">  
       <button type="button" className="btn btn-light btn-lg">הרשמה</button>
@@ -51,10 +54,10 @@ function NavBar(){
       </ul>
      
       <Link to="/">
-    <a className="navbar-brand p-2 bd-highlight" >BeatMe</a>
+    <a className="logo" ></a>
    </Link>
     </div>
-  </div>
+  </div> */}
 </nav>
  );   
 }
