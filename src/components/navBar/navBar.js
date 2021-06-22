@@ -1,19 +1,21 @@
 import React from "react"
-import NewUsers from "../userLogin/userLogin"
-import NewUser2 from "../userLogin/userLogin"
-import NewUser from "../newUser/newUser"
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';
 import "./navBar.css"
+import logo from "./pictures/logo.png"
 
 function NavBar(){
 
 
  return(
-<nav className="navBar">
-  <div className="logo"></div>
+<div className="navBar">
+ 
   <input className="search"></input>
-  <button className="search-icon"></button>
+  <button className="search-icon"></button>  
+  <a href="/create" className="links">צור תחרות</a>
+  <a href="/create" className="links">המנצחים</a>
+  <a href="/create" className="links">התחרויות</a>
+  <a  href="/" className="logo"><img src={logo}></img></a>
+ 
   {/* <div className="">
   <form className="">
         <button className="search-icon" type="submit">חיפוש</button>
@@ -58,7 +60,7 @@ function NavBar(){
    </Link>
     </div>
   </div> */}
-</nav>
+</div>
  );   
 }
 export default NavBar

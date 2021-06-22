@@ -1,9 +1,8 @@
 
-export default function addParticipantAPI(comptitonName,userName, email) {
+export default function addCompetitonAPI(competition) {
 
     return(
-
-      fetch(`http://localhost:3000/addParticipant?comptitonName=${comptitonName}&username=${userName}&email=${email}`)
+      fetch(`http://localhost:3000/competition/addCompetiton?competition=${competition}`, { method: "POST" })
         .then((res) => {res.json(); console.log(res)})
         .then((data) => console.log(data))
         .catch((err) => {

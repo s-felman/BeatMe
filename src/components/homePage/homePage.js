@@ -12,32 +12,13 @@ import FlexWrap from "../slideShow/flexBox"
 
 
 const HomePage = () => {
-    const responsive = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 2000, min: 1500 },
-          items: 5
-        },
-        desktop: {
-          breakpoint: { max:1500, min: 512 },
-          items: 3
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
-        }
-      };
-      var items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
     return (
         <div>
-            <div>
+            <div >
                 <NavBar ></NavBar>
             </div>
-            <div>
+            <div className="home-page">
                 {/* <div className="slide-show"></div> */}
                 <SlideShow ></SlideShow>
                 <div className="select">
@@ -46,17 +27,17 @@ const HomePage = () => {
                 </button>
                 </Link>
                 <Link to="/userlogin">
-                <button className="select-type">מתחרה פעיל
+                <button  className="animate__pulse" className="select-type">מתחרה פעיל
                 </button>
                 </Link>
                 <Link to="/create">
-                <button className="select-type">יצירת תחרות
+                <button className="animate__bounceIn select-type">יצירת תחרות
                 </button>
                 </Link>
                 </div>
                 <div className="titles">התחרויות</div>
               
-            </div>
+            
             <div className="comptitions-to-show">
             {/* <Carousel  items={items} active={0}/>,  */}
                 {/* <ShowList></ShowList> */}
@@ -75,7 +56,7 @@ const HomePage = () => {
             <div className="footer">כל הזכויות שמורות
             </div>
         </div>
-
+</div>
     )
 }
 

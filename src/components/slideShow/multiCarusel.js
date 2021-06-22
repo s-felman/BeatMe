@@ -2,7 +2,7 @@
 import "react-multi-carousel/lib/styles.css";
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import MultiTasks from "../comptitions/multiTasks";
+import MultiTasks from "../competitions/multiTasks";
 import "./multiCarusel.css"
  
 //var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;

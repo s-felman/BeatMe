@@ -1,41 +1,32 @@
 import React, { Component, useState } from "react"
 import { connect } from "react-redux"
 import { Link } from 'react-router-dom';
-import Faker from "faker";
+
 
 
 
 const images = [
     {
-        url: Faker.image.sports(),
         title: 'חידון',
-        width: '40%',
         path: "/trivia"
 
     },
     {
-        url: Faker.image.city(),
         title: 'פרויקט משותף',
-        width: '30%',
         path: "/team"
     },
     {
-        url: Faker.image.cats(),
+
         title: 'תחרות הצבעות',
-        width: '40%',
         path: "/votes"
     },
     {
-        url: Faker.image.animals(),
         title: 'משימות מחולקות',
-        width: '30%',
         path: "/multitasks"
 
     },
     {
-        url: Faker.image.sports(),
         title: 'משימה בודדת',
-        width: '30%',
         path: "/onetask"
 
     },
@@ -50,11 +41,10 @@ const Type2 = (props) => {
 
 
     return (
-        <div>
-            {images.map((image) => (<div>
-                <button onClick={(event)=> {handleChange(event);setType(image.path);}}>
+        <div className="card-type-competition">
+            {images.map((image) => (<div className="select-competiton-type">
+                <button className="button-type" onClick={(event)=> {handleChange(event);setType(image.path);}}>
                     <h2>{image.title}</h2>
-                    <image>{image.url}</image>
                 </button> </div>))}
                 </div>
     )

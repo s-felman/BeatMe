@@ -8,14 +8,14 @@ import Edit from "./components/manager/edit";
 import Manager from "./components/manager/manager";
 import userLogin from "./components/userLogin/userLogin"
 import participant from "./components/participant/participant";
-import CreateProps from "./components/comptitions/createProps";
+import CreateProps from "./components/competitions/createProps";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import OneTask from "./components/comptitions/oneTask";
-import Votes from "./components/comptitions/votes";
-import Trivia from "./components/comptitions/trivia";
-import MultiTasks from "./components/comptitions/multiTasks";
-import Team from "./components/comptitions/team";
+import OneTask from "./components/competitions/oneTask";
+import Votes from "./components/competitions/votes";
+import Trivia from "./components/competitions/trivia";
+import MultiTasks from "./components/competitions/multiTasks";
+import Team from "./components/competitions/team";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
