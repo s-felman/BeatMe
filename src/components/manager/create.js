@@ -9,7 +9,9 @@ import profile2 from "../../static/images/profilim 3.png";
 import profile3 from "../../static/images/profilim 4.png";
 import profile4 from "../../static/images/profilim 5.png";
 import profile5 from "../../static/images/profilim 6.png";
-
+import emailjs from 'emailjs-com';
+import{ init } from 'emailjs-com';
+init("user_qMw5HuferY6tdn7CfelD1");
 const Create = (props) => {
 
 
@@ -110,7 +112,21 @@ const Create = (props) => {
           //props.toAddUserCallback(userList);
         }
     
-    
+    const sendEmail=( )=>{
+      emailjs.send('service_hhnf93h', 'template_z0dxy0e',             
+        {
+          from_name:"יאיר חן",
+        customer_address: useremail,
+        to_name: username,
+    },  'user_qMw5HuferY6tdn7CfelD1')            
+    .then((result) => {
+      console.log(result.text);
+  }, (error) => {
+      console.log(error.text);
+  });
+;
+
+    }
        return (
         <div id="results" className="search-results">
           <label>שם משתמש</label>
@@ -118,7 +134,7 @@ const Create = (props) => {
           <label>כתובת מייל</label>
           <input type="email" value={useremail} onChange={event => setUseremail(event.target.value)}></input><br />
           <button onClick={() => {user(username, useremail); alert("המשתמש נוסף בהצלחה"); 
-            setUsername(" "); setUseremail(" ");setShowResults(false) ; }} >הוספה</button> 
+            setUsername(" "); setUseremail(" ");setShowResults(false) ; sendEmail()}} >הוספה</button> 
           </div>
         )
       }
@@ -175,5 +191,6 @@ const Create = (props) => {
 
 
 export default Create;
+//https://dashboard.emailjs.com/admin/templates/hbl27zc
 //https://reactjs.org/docs/forms.html
 //https://dev.to/muhammadawaisshaikh/how-to-get-an-updated-state-of-child-component-in-the-parent-component-using-the-callback-method-1i5

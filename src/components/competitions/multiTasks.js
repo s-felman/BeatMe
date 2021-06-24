@@ -24,7 +24,7 @@ const [target, setTarget]= useState("");
     setDetails(data)
 }
     return(<div className="">
-      <h1>{props.location.state.name}</h1>
+      <h1>{props.location.compProps.name}</h1>
         <CreateProps onchange={(e) => { onchange(e) }}></CreateProps>
         <label> יעד סופי</label><br/>
         <input placeholder="פירוט" onChange={event => setTarget(event.target.value)}></input>
@@ -32,7 +32,7 @@ const [target, setTarget]= useState("");
         <label>משימת אמצע</label>
         <button>date</button><br/>
         <textarea placeholder="פירוט משימת אמצע"></textarea><br/>
-        <button onClick={()=>{addCompetitonAPI(comp)}}>התחל תחרות</button>
+        <button onClick={()=>{addCompetitonAPI(JSON.stringify(comp))}}>התחל תחרות</button>
     </div>)
 }
 
