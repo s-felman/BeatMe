@@ -202,7 +202,9 @@ const Create = (props) => {
         <img src={profile} className="profile-pic"></img>
         <label className="profile-name">יאיר חן</label>
         <label className="profile-name-props">מנהל התחרות</label>
-        <label className="edit-profile-text">ערוך פרופיל</label>
+        <Link to = "/updateUser">
+          <label className="edit-profile-text">ערוך פרופיל</label>
+        </Link>
         <label className="profile-participants-label">משתתפי התחרות</label>
         <div className="profile-list">{list}</div>
       </div>

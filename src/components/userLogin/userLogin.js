@@ -56,9 +56,15 @@ const ConditionalLink = ({ children, to, condition }) => (condition)
     
                 <input type="text" placeholder="שם משתמש\אימייל" className="insert-props" onChange={(e)=>setUsername(e.target.value)} ></input>
                 <input type="password" placeholder="סיסמא" className="insert-props" onChange={(e)=>setPassword(e.target.value)}></input>
+
              
                     <button type="submit" className="button-login" onClick={()=>{checkLogin()}}>כניסה</button>
                    
+{/* =======
+                <Link to="/participant">
+                    <button type="submit" className="button-login" onSubmit={()=>{ loginAPI(username, password) }}>כניסה</button>
+                </Link>
+>>>>>>> 696a7c206219368ba5629a0dd03331dbaa5dcd18 */}
             </from>
         </div>
     ) 

@@ -3,9 +3,9 @@ import CreateProps from "./createProps";
 import addCompetitonAPI from "../../api/managerFunctions";
 
 const MultiTasks=(props)=>{
-const [details, setDetails]= useState("");
-const [date, setDate]=useState("");
-const [target, setTarget]= useState("");
+  const [details, setDetails]= useState("");
+  const [date, setDate]=useState("");
+  const [target, setTarget]= useState("");
 
   const comp={
     name: props.location.compProps.name,
