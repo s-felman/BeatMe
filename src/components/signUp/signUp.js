@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Checkbox } from "@material-ui/core";
 import NavBar from "../navBar/navBar";
 import { Link } from "react-router-dom";
-import signUpAPI from '../../api/loginFunctions'
+import signUpAPI from '../../api/signUpFunction';
 
 const SignUp=()=>{
 

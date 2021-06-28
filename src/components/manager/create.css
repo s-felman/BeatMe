@@ -198,4 +198,14 @@ text-align: center;
 
 .create-button-selected{
     border: black;
+    width: 232px;
+    height: 182px;
+text-align: center;
+    top: 358px;
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.19)
 }
