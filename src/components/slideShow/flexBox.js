@@ -23,7 +23,6 @@ export default function FlexWrap() {
     .map(p => {
         return (
      <div p={1}>       
-     
      <Card style={{ width: '18rem' }} className="box">
   <Card.Img variant="top" src={p.image} />
   <Card.Body>

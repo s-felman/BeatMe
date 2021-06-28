@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Checkbox } from "@material-ui/core";
 import NavBar from "../navBar/navBar";
 import { Link } from "react-router-dom";
-import signUpAPI from '../../api/sinUpFunctions'
+import updateAPI from '../../api/updateFunctions'
 
-const SignUp=()=>{
+const updateUser=()=>{
 
     const [fnameError,setFNameError]=useState("");
     const [lnameError,setLNameError]=useState("");
@@ -22,16 +22,23 @@ const SignUp=()=>{
     const [password,setPassword]=useState("");
     const [getEmail,setgetEmail]=useState(false);
 
+    const user={
+        firstName: firstName,
+        lastName:  lastName,
+        userName:  userName,
+        phone: phone,
+        email: email,
+        password: password,
+        getEmail: getEmail
+    }
+
     function fnameErrorFucntion(text){
         if(text!=""){  
             setFNameError("");
             setFirstName(text);
-
-            //return false;
         }
         else {
-            setFNameError("שדה חובה");    
-            //return true;
+            setFNameError("שדה חובה");
         }
     }
     function lnameErrorFucntion(text){
@@ -131,12 +138,10 @@ const SignUp=()=>{
               <span className='error'>{ passwordError }</span><br/>
               <label>אני מאשר קבלת מיילים</label>
               <Checkbox id="getEmail" onChange={(e)=>setgetEmail(e.target.value)}></Checkbox><br/>
-              <button type="submit" onClick={()=>{signUpAPI(firstName, lastName, userName, phone, email, password, getEmail)}}>רישום </button><br/><br/>
-              <Link to="/userlogin">משתמש קיים</Link>
+              <button type="submit" onClick={()=>{updateAPI(JSON.stringify(user))}}>עדכן</button><br/><br/>
           </form>
       </div>  
     )
-
 }
 
-export default SignUp
+export default updateUser;

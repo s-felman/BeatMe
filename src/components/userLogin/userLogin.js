@@ -22,7 +22,7 @@ const UserLogin=()=>{
                 <input type="text" placeholder="שם משתמש\אימייל" className="insert-props" onChange={(e)=>setUsername(e.target.value)} ></input>
                 <input type="password" placeholder="סיסמא" className="insert-props" onChange={(e)=>setPassword(e.target.value)}></input>
                 <Link to="/participant">
-                    <button type="submit" className="button-login" onSubmit={loginAPI(username, password)}>כניסה</button>
+                    <button type="submit" className="button-login" onSubmit={()=>{ loginAPI(username, password) }}>כניסה</button>
                 </Link>
             </from>
         </div>
