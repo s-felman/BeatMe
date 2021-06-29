@@ -6,7 +6,7 @@ import NavBar from "../navBar/navBar";
 import { Link } from "react-router-dom";
 import updateAPI from '../../api/updateFunctions'
 
-const updateUser=()=>{
+const UpdateUser=()=>{
 
     const [fnameError,setFNameError]=useState("");
     const [lnameError,setLNameError]=useState("");
@@ -144,4 +144,4 @@ const updateUser=()=>{
     )
 }
 
-export default updateUser;
+export default UpdateUser;

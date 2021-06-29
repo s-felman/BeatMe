@@ -17,6 +17,7 @@ import Trivia from "./components/competitions/trivia";
 import MultiTasks from "./components/competitions/multiTasks";
 import Team from "./components/competitions/team";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UpdateUser from "./components/user/updateUser";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
     <Route path="/trivia/:cname" component={Trivia} />
     <Route path="/votes/:cname" component={Votes} />
     <Route path="/users/:id" component={Participant} />
+    <Route path="/updateUser" component={UpdateUser} />
   </Switch>
 
     </div>

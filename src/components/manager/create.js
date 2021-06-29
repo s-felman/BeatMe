@@ -203,7 +203,7 @@ const Create = (props) => {
         <label className="profile-name">יאיר חן</label>
         <label className="profile-name-props">מנהל התחרות</label>
         <Link to = "/updateUser">
-          <label className="edit-profile-text">ערוך פרופיל</label>
+          <button className="edit-profile-text">ערוך פרופיל</button>
         </Link>
         <label className="profile-participants-label">משתתפי התחרות</label>
         <div className="profile-list">{list}</div>
