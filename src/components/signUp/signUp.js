@@ -112,10 +112,10 @@ const SignUp=()=>{
           <NavBar></NavBar>
           <form>
           <br/> 
-              <label required>שם משפחה</label>
+              <label required>שם פרטי</label>
               <input type="text" id="firstName" onChange={(e)=>fnameErrorFucntion(e.target.value)}></input><br/><br/>
               <span className='error'>{ fnameError }</span><br/>
-              <label>שם פרטי</label>
+              <label>שם משפחה</label>
               <input type="text" onChange={(e)=>lnameErrorFucntion(e.target.value)}></input><br/><br/>
               <span className='error'>{ lnameError }</span><br/>
               <label>שם משתמש</label>

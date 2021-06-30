@@ -1,4 +1,6 @@
-import React , {useState, useEffect}from "react"
+import React , {useState, useEffect, useCallback}from "react"
+import {connect} from "react-redux";
+import {fetchUser} from "../../action";
 import { Link } from "react-router-dom"
 import NavBar from "../navBar/navBar";
 import loginAPI from "../../api/loginFunctions"
@@ -9,42 +11,40 @@ import Participant from "../participant/participant";
 
 const UserLogin=(props)=>{
 
-    const [password, setPassword]= useState("jjnj");
+    const [password, setPassword]= useState("");
     const [username, setUsername]= useState("");
     const [user, setUser] = useState({});
-    const [sucsess, setSucsess]=useState(false);
+    const [path, setPath] = useState("/userlogin");
+    const [userId, setUserId]=useState("");
 
-useEffect(() => {
-  fetch(`/api/users/${props.match.params.userId}`)
-    .then(response => response.json())
-    .then(userData => setUser(userData))
-}, []);
+// useEffect(() => {
 
-const ConditionalLink = ({ children, to, condition }) => (condition)
-      ? <Link to={to}>{children}</Link>
-      : <>{children}</>;
+//   fetch(`/api/users/${props.match.params.userId}`)
+//     .then(response => response.json())
+//     .then(userData => setUser(userData))
+// }, []);
+
+const req=useCallback(()=>{
+    props.fetchUser(username, password);
+    console.log("users->",props.users);
+        if( props.users.password===password){
+            console.log("succsess!!");
+           setUser(props.users);
+           setUserId(user.usernName)
+           setPath("/participant")
+           }
+           else{
+               alert("שם משתמש או סיסמא שגויים")
+           }
+      },[username,password]);
+
+// const  fetchFunc=async(username, password) =>{
+//     await  loginAPI(username,password)
+   
+//  }
  
-    const  checkLogin=async() =>{
-       await  fetch(`http://localhost:3000/users/login?userName=${username}&password=${password}`)
-       .then((res) => res.json())
-       .then((data) => {
-         console.log("data",data); 
-         if(data.length===1 && data[0].password===password){
-             console.log("sucsess!!");
-             setSucsess(true);
-            //setUser(data);
-            <ConditionalLink to="/patricipant" condition={sucsess}/>
-            }
-            else{
-                alert("שם משתמש או סיסמא שגויים")
-            }
-       })
-       .catch((err) => {
-           console.log("error", err);
-       })
- 
-     
-    }
+   
+const u=props.users;
 
     return(
         <div className="ul">
@@ -57,16 +57,19 @@ const ConditionalLink = ({ children, to, condition }) => (condition)
                 <input type="text" placeholder="שם משתמש\אימייל" className="insert-props" onChange={(e)=>setUsername(e.target.value)} ></input>
                 <input type="password" placeholder="סיסמא" className="insert-props" onChange={(e)=>setPassword(e.target.value)}></input>
 
-             
-                    <button type="submit" className="button-login" onClick={()=>{checkLogin()}}>כניסה</button>
-                   
-{/* =======
-                <Link to="/participant">
-                    <button type="submit" className="button-login" onSubmit={()=>{ loginAPI(username, password) }}>כניסה</button>
-                </Link>
->>>>>>> 696a7c206219368ba5629a0dd03331dbaa5dcd18 */}
+              <Link to={{pathname:`${path}/${username}`}}>
+                    <button type="submit" className="button-login" onClick={req}>כניסה</button>
+                   </Link>
+
             </from>
         </div>
     ) 
 }
-export default UserLogin;
+const mapStateToProps=(state)=>{
+    return{
+        users: state.users
+    }
+}
+export default connect(mapStateToProps, {fetchUser})(UserLogin); 
+
+//export default UserLogin;

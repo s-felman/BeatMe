@@ -30,7 +30,7 @@ function App() {
     <Route path="/manager" component={Manager} />
     <Route path="/team/:cname" component={Team}/>
     <Route path="/userlogin" component={userLogin} />
-    <Route path="/participant" component={Participant}/>
+    <Route path="/participant/:id" component={Participant}/>
     <Route path="/createprops" component={CreateProps} />
     <Route path="/multitasks/:cname" component={MultiTasks} /> 
     <Route path="/onetask/:cname" component={OneTask} />

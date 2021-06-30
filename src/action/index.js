@@ -1,3 +1,14 @@
+import login from "../api/loginFunctions"
+export const fetchUser= (username, password)=>{
+    return async function(dispatch){
+    const result= await login(username, password)
+    dispatch({
+        type: "FETCH_USER",
+        payload: result
+    })
+}}
+
+
 export const oneTask =()=>{
     return{
         type:'ONE_TASK' ,
@@ -37,3 +48,4 @@ export const votes =()=>{
 
     }
 }
+
