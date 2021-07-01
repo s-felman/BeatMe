@@ -10,17 +10,26 @@ import userLogin from "./components/userLogin/userLogin"
 import Participant from "./components/participant/participant";
 import CreateProps from "./components/competitions/createProps";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import OneTask from "./components/competitions/oneTask";
 import Votes from "./components/competitions/votes";
 import Trivia from "./components/competitions/trivia";
 import MultiTasks from "./components/competitions/multiTasks";
 import Team from "./components/competitions/team";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect } from "react";
 import UpdateUser from "./components/user/updateUser";
 
 
 function App() {
+  
+  useEffect(() => {
+    fetch("http://localhost:3000/login?user=user1")
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => {
+        console.log("error", err);
+      });
+  }, []);
+
   return (
   <div className="App">
     <Switch>
@@ -40,6 +49,7 @@ function App() {
     <Route path="/users/:id" component={Participant} />
     <Route path="/updateUser" component={UpdateUser} />
   </Switch>
+
 
     </div>
   );

@@ -1,11 +1,19 @@
 import login from "../api/loginFunctions"
 export const fetchUser= (username, password)=>{
-    return async function(dispatch){
-    const result= await login(username, password)
-    dispatch({
+    return function(dispatch){
+ login(username, password).then((result)=>{
+       dispatch({
         type: "FETCH_USER",
         payload: result
-    })
+    })  
+ }).catch(()=>{
+     console.log("catch");
+    dispatch({
+        type: "LOGIN_ERROR"
+    })  
+
+ })
+
 }}
 
 
