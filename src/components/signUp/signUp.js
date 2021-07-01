@@ -118,6 +118,12 @@ const SignUp=()=>{
               <span className='error'>{ fnameError }</span><br/>
               <label className="signUp-lastName">שם פרטי</label>
               <input className="signUp-lastName-text" type="text" onChange={(e)=>lnameErrorFucntion(e.target.value)}></input><br/><br/>
+          <br/> 
+              <label required>שם פרטי</label>
+              <input type="text" id="firstName" onChange={(e)=>fnameErrorFucntion(e.target.value)}></input><br/><br/>
+              <span className='error'>{ fnameError }</span><br/>
+              <label>שם משפחה</label>
+              <input type="text" onChange={(e)=>lnameErrorFucntion(e.target.value)}></input><br/><br/>
               <span className='error'>{ lnameError }</span><br/>
               <label className="signUp-userName">שם משתמש</label>
               <input className="signUp-userName-text" type="text" name="UserName" onChange={(e)=>unameErrorFucntion(e.target.value)}></input><br/><br/>
