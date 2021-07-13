@@ -15,7 +15,7 @@ const Participant=(props)=>{
                 <NavBar ></NavBar>
             </div>
             <div className="participant-props">
-                <div className="participant-title">שלום {props.users.firstName}</div>
+                <div className="participant-title">שלום {props.users.userName}</div>
                     <div className="participant-competitions">התחריות שלי</div>
                     <div className="participant-profile">
                     <img src={profile} className="participant-profile-pic"></img>

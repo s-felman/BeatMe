@@ -66,7 +66,7 @@ const Create = (props) => {
   const [value, setValue] = useState('/create');
   const [cname, setCname] = useState('');
   const [userList, setUserList] = useState([]);
-  const [buttonSelected, setButtonSelected] = useState(false);
+  const [buttonSelected, setButtonSelected] = useState("");
   const [cnameError, setCNameError] = useState('');
 
   useEffect(() => {
@@ -109,7 +109,7 @@ const Create = (props) => {
         </div>
       )
     })
-  const btnSelectedClass = buttonSelected ? "create-button-selected" : "select-competiton-type";
+  // const btnSelectedClass = buttonSelected ? "create-button-selected" : "select-competiton-type";
 
   const AddUser = (props) => {
     const [showResults, setShowResults] = useState(false);
@@ -179,9 +179,17 @@ const Create = (props) => {
           onChange={setCname1} className="competiton-name-input" ></input><br />
         <span className='error'>{cnameError}</span><br />
         <div className="card-type-competition" >
-          {images.map((image) => (<button className={btnSelectedClass} onClick={() => { setValue(image.path); setButtonSelected(false) }}>
-            <h2 className="title-type">{image.title}</h2>
-          </button>))}
+        {images.map((image) => {
+            console.log("buttonSelected", buttonSelected, image.path, image.path === buttonSelected);
+            return <button className={image.path === buttonSelected ? "create-button-selected" : "select-competiton-type"} onClick={() => { setValue(image.path); setButtonSelected(image.path) }}>
+              <h2 className="title-type">{image.title}</h2>
+            </button>
+          })}
+          {/* {images.map((image) => {
+                      return ()
+          }
+}
+          ) */}
         </div>
         <div className="create-buttons-div">
           <button className="add-perticipant-button">העלאת קובץ אקסל</button>
