@@ -29,6 +29,7 @@ const Participant=(props)=>{
     )
 }
 const mapStateToProps=(state)=>{
+    console.log("user", state.users);
     return{
         users: state.users
     }

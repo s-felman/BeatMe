@@ -15,7 +15,7 @@ import Votes from "./components/competitions/votes";
 import Trivia from "./components/competitions/trivia";
 import MultiTasks from "./components/competitions/multiTasks";
 import Team from "./components/competitions/team";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { useEffect } from "react";
 import UpdateUser from "./components/user/updateUser";
 

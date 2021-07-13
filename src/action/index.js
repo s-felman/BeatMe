@@ -5,15 +5,14 @@ export const fetchUser= (username, password)=>{
        dispatch({
         type: "FETCH_USER",
         payload: result
-  
  }).catch(()=>{
      console.log("catch");
     dispatch({
         type: "LOGIN_ERROR"
     })  
  })
- })
-}}
+})
+    }}
 export const oneTask =()=>{
     return{
         type:'ONE_TASK' ,

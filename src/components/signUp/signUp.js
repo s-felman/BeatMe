@@ -5,6 +5,7 @@ import { Checkbox } from "@material-ui/core";
 import NavBar from "../navBar/navBar";
 import { Link } from "react-router-dom";
 import signUpAPI from '../../api/signUpFunction';
+import './signUp.css';
 
 
 const SignUp=()=>{
@@ -111,29 +112,29 @@ const SignUp=()=>{
       <div>
           <NavBar></NavBar>
           <form>
-          <br/> 
-              <label required>שם פרטי</label>
-              <input type="text" id="firstName" onChange={(e)=>fnameErrorFucntion(e.target.value)}></input><br/><br/>
+              <label className=".signUp-title">יצירת חשבון</label> 
+              <label className="signUp-firstName-text" required>שם פרטי</label>
+              <input className="signUp-firstName" type="text" id="firstName" onChange={(e)=>fnameErrorFucntion(e.target.value)}></input><br/><br/>
               <span className='error'>{ fnameError }</span><br/>
-              <label>שם משפחה</label>
-              <input type="text" onChange={(e)=>lnameErrorFucntion(e.target.value)}></input><br/><br/>
+              <label className="signUp-lastName-text">שם משפחה</label>
+              <input className="signUp-lastName" type="text" onChange={(e)=>lnameErrorFucntion(e.target.value)}></input><br/><br/>
               <span className='error'>{ lnameError }</span><br/>
-              <label>שם משתמש</label>
-              <input type="text" name="UserName" onChange={(e)=>unameErrorFucntion(e.target.value)}></input><br/><br/>
+              <label className="signUp-userName-text">שם משתמש</label>
+              <input className="signUp-userName" type="text" name="UserName" onChange={(e)=>unameErrorFucntion(e.target.value)}></input><br/><br/>
               <span className='error'>{ unameError }</span><br/>
-              <label>טלפון</label>
-              <input type="text" onChange={(e)=>phoneErrorFuncion(e.target.value)}></input><br/><br/>
+              <label className="signUp-phone-text">טלפון</label>
+              <input className="signUp-phone" type="text" onChange={(e)=>phoneErrorFuncion(e.target.value)}></input><br/><br/>
               <span className='error'>{ phoneError }</span><br/>
-              <label>כתובת מייל</label>
-              <input type="email" onChange={(e)=>emailErrorFunction(e.target.value)}></input><br/><br/>
+              <label className="signUp-email-text">כתובת מייל</label>
+              <input className="signUp-email" type="email" onChange={(e)=>emailErrorFunction(e.target.value)}></input><br/><br/>
               <span className='error'>{ emailError }</span><br/>
-              <label>סיסמא</label>
-              <input type="password" onChange={(e)=>passwordErrorFunction(e.target.value)}></input><br/><br/>
+              <label className="signUp-password-text">סיסמא</label>
+              <input className="signUp-password" type="password" onChange={(e)=>passwordErrorFunction(e.target.value)}></input><br/><br/>
               <span className='error'>{ passwordError }</span><br/>
-              <label>אני מאשר קבלת מיילים</label>
-              <Checkbox id="getEmail" onChange={(e)=>setgetEmail(e.target.value)}></Checkbox><br/>
-              <button type="submit" onClick={()=>{signUpAPI(firstName, lastName, userName, phone, email, password, getEmail)}}>רישום </button><br/><br/>
-              <Link to="/userlogin">משתמש קיים</Link>
+              <label className="signUp-checkbox-text">אישור קבלת הודעות במייל</label>
+              <Checkbox className="signUp-checkbox" id="getEmail" onChange={(e)=>setgetEmail(e.target.value)}></Checkbox><br/>
+              <button className="signUp-enterUser" type="submit" onClick={()=>{signUpAPI(firstName, lastName, userName, phone, email, password, getEmail)}}>רישום </button><br/><br/>
+              <Link to="/userlogin" className=".enter-loginUser">משתמש קיים? היכנס</Link>
           </form>
       </div>  
     )
