@@ -15,11 +15,11 @@ const Participant=(props)=>{
                 <NavBar ></NavBar>
             </div>
             <div className="participant-props">
-                <div className="participant-title">שלום {props.users.userName}</div>
+                <div className="participant-title">שלום {props.user.userName}</div>
                     <div className="participant-competitions">התחריות שלי</div>
                     <div className="participant-profile">
                     <img src={profile} className="participant-profile-pic"></img>
-                    <label className="participant-profile-name">{props.users.userName}</label>
+                    <label className="participant-profile-name">{props.user.userName}</label>
                     <label className="participant-profile-name-props">משתתף פעיל</label>
                     <label className="participant-edit-profile-text">ערוך פרופיל</label>
                 </div>
@@ -29,9 +29,9 @@ const Participant=(props)=>{
     )
 }
 const mapStateToProps=(state)=>{
-    console.log("user", state.users);
+    console.log("user", state.user);
     return{
-        users: state.users
+        user: state.user
     }
 }
 export default connect(mapStateToProps)(Participant); 

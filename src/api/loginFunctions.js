@@ -13,10 +13,11 @@ export default function loginAPI(userName, password) {
         if (res.status === 401) {
           throw new Error("authentication failed")
         }
+        console.log("res.json", res.json)
         return res.json()
       })
       .then((data) => {
-        console.log("data", data);
+        console.log("data", data[0]);
         return data[0]
       })
       .catch((err) => {

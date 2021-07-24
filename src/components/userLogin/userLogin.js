@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react"
 import { connect } from "react-redux";
 import { fetchUser } from "../../action";
+import {saveUser} from "../../action/userAction"
 import { Link } from "react-router-dom"
 import NavBar from "../navBar/navBar";
 import loginAPI from "../../api/loginFunctions"
@@ -29,22 +30,24 @@ const UserLogin = (props) => {
             alert("שם משתמש או סיסמא שגויים")
         } else {
             console.log("succsess!!");
-            setUser(props.users);
+            setUser(props.user);
             setUserId(user.usernName)
             setPath("/participant");
         }
-    }, [props.users, props.error])
+    }, [props.user, props.error])
 
     const req = () => {
-        props.fetchUser(username, password);
-        console.log("users->", props.users);
+       const i= props.fetchUser(username, password);
+        //props.saveUser(user);
+        localStorage.setItem("user", i);
+        console.log("users->", props.user);
         // const  fetchFunc=async(username, password) =>{
         //     await  loginAPI(username,password)
 
         //  }
     }
 
-        const u = props.users;
+        const u = props.user;
 
         return (
             <div className="ul">
@@ -67,8 +70,8 @@ const UserLogin = (props) => {
     }
     const mapStateToProps = (state) => {
         return {
-            users: state.users,
-            error: state.users.error
+            user: state.user,
+            error: state.user.error
         }
     }
 

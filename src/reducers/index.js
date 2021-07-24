@@ -3,7 +3,7 @@ import {usersReducer} from "./usersReducers"
 
 
 export default combineReducers({
-users: usersReducer,
+user: usersReducer,
 })
 // const changeLink=(action, state)=>{
 //     if(action.type==='ONE_TASK')

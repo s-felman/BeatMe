@@ -2,16 +2,18 @@ import login from "../api/loginFunctions";
 export const fetchUser= (username, password)=>{
     return function(dispatch){
  login(username, password).then((result)=>{
+     console.log("result in fetch",result);
+     localStorage.setItem("user", JSON.parse(result));
        dispatch({
         type: "FETCH_USER",
         payload: result
- }).catch(()=>{
+ })
+}).catch(()=>{
      console.log("catch");
     dispatch({
         type: "LOGIN_ERROR"
     })  
  })
-})
     }}
 export const oneTask =()=>{
     return{
