@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import CreateProps from "./createProps";    
 import addCompetitonAPI from "../../api/managerFunctions";
 import Select from 'react-select';
-import "./oneTask.css"
+import "./competitions.css"
 
 const options = [
   { value: 'חודש', label: 'חודש' },
@@ -18,6 +18,7 @@ const OneTask=(props)=>{
     
       const comp={
         name: props.location.compProps.name,
+        manager: props.location.compProps.managerName,
         type:  props.location.compProps.type,
         userList:  props.location.compProps.userList,
         details: details,

@@ -29,9 +29,9 @@ const Participant=(props)=>{
     )
 }
 const mapStateToProps=(state)=>{
-    console.log("user", state.user);
+
     return{
-        user: state.user
+        user: state.user.user
     }
 }
 export default connect(mapStateToProps)(Participant); 

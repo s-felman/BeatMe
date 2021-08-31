@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect, Component } from "react"
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import HomePage from './components/homePage/homePage';
@@ -15,12 +15,13 @@ import Votes from "./components/competitions/votes";
 import Trivia from "./components/competitions/trivia";
 import MultiTasks from "./components/competitions/multiTasks";
 import Team from "./components/competitions/team";
-
-import { useEffect } from "react";
 import UpdateUser from "./components/user/updateUser";
 
 
 function App() {
+
+  const [isLogged , setIsLogged] = useState(false) //checks if the user has logged in
+  const[userName,setUserName]=useState("") //the current user name
 
   useEffect(() => {
     fetch("http://localhost:3000/login?user=user1")
@@ -29,15 +30,17 @@ function App() {
       .catch((err) => {
         console.log("error", err);
       });
+      localStorage.setItem("user",'undefined');
+
   }, []);
 
   return (
   <div className="App">
     <Switch>
     <Route exact path="/" component={HomePage} />
-    <Route path="/signup" component={SignUp} />
+    <Route exact path="/signup" component={SignUp}/>
     <Route path="/edit" component={Edit} />
-    <Route path="/create" component={Create} />
+    <Route path="/create/:id" component={Create} />
     <Route path="/manager" component={Manager} />
     <Route path="/team/:cname" component={Team}/>
     <Route path="/userlogin" component={userLogin} />

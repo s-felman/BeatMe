@@ -1,9 +1,11 @@
 import {combineReducers} from "redux"
 import {usersReducer} from "./usersReducers"
-
+import {compReducer} from "./competitionReducers"
 
 export default combineReducers({
 user: usersReducer,
+comp: compReducer,
+
 })
 // const changeLink=(action, state)=>{
 //     if(action.type==='ONE_TASK')

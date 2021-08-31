@@ -17,7 +17,7 @@ const UserLogin = (props) => {
     const [user, setUser] = useState({});
     const [path, setPath] = useState("/userlogin");
     const [userId, setUserId] = useState("");
-
+    // const [toCreate, setToCreate] = useState("");
     // useEffect(() => {
 
     //   fetch(`/api/users/${props.match.params.userId}`)
@@ -32,12 +32,16 @@ const UserLogin = (props) => {
             console.log("succsess!!");
             setUser(props.user);
             setUserId(user.usernName)
-            setPath("/participant");
+            //setPath("/participant");
         }
     }, [props.user, props.error])
 
     const req = () => {
        const i= props.fetchUser(username, password);
+    if(props.location.state=="create")
+    setPath("/create")
+    else
+    setPath("/participant")
         //props.saveUser(user);
         localStorage.setItem("user", i);
         console.log("users->", props.user);
@@ -60,7 +64,7 @@ const UserLogin = (props) => {
                     <input type="text" placeholder="שם משתמש\אימייל" className="insert-props" onChange={(e) => setUsername(e.target.value)} ></input>
                     <input type="password" placeholder="סיסמא" className="insert-props" onChange={(e) => setPassword(e.target.value)}></input>
 
-                    <Link to={{ pathname: `${path}/${username}` }}>
+                    <Link to={{ pathname: `${path}/${username}`  }}>
                         <button type="submit" className="button-login" onClick={req}>כניסה</button>
                     </Link>
 
