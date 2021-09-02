@@ -4,16 +4,11 @@ export default function loginAPI(userName, password) {
 
 
   return (
-
-
-
     fetch(`http://localhost:3000/users/login?userName=${userName}&password=${password}`)
-
       .then((res) => {
         if (res.status === 401) {
           throw new Error("authentication failed")
         }
-        console.log("res.json", res.json)
         return res.json()
       })
       .then((data) => {

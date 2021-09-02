@@ -5,7 +5,7 @@ const INITIAL_STATE={
 export const usersReducer=(state=INITIAL_STATE, action)=>{
     switch(action.type){
         case "FETCH_USER":
-        return {...state, user: action.payload}
+        return { ...state, user: action.payload}
         case "SAVE_USER":
             return {...state, user: action.payload}
         default:

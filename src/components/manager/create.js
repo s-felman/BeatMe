@@ -11,9 +11,11 @@ import profile4 from "../../static/images/profilim 5.png";
 import profile5 from "../../static/images/profilim 6.png";
 import emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
+import user from "../user/user";
+import {connect} from "react-redux";
 init("user_qMw5HuferY6tdn7CfelD1");
 const Create = (props) => {
-
+const managerName=props.user.userName;
 
   const participants = [
     {
@@ -68,11 +70,12 @@ const Create = (props) => {
   const [userList, setUserList] = useState([]);
   const [buttonSelected, setButtonSelected] = useState("");
   const [cnameError, setCNameError] = useState('');
-
+  const [manager, setManager] = useState('');
   useEffect(() => {
     console.log("useEffect", value);
     cnameErrorFucntion(cname);
-    // console.log("cname", cname);
+    setManager(props.user.userName)
+     
   });
 
   function checkValidations(cname, value) {
@@ -118,24 +121,23 @@ const Create = (props) => {
     const onClick = () => {
       setShowResults(true);
     }
-
-    const Results = (props) => {
+ 
+    const Results =(props) => {
       const [username, setUsername] = useState("");
       const [useremail, setUseremail] = useState("");
 
 
       const user = (userName, userEmail) => {
         const u = { userName: userName, userEmail: userEmail };
-        console.log("user", u);
         setUserList([...userList, u]);
-        console.log("shani", userList);
+
         //props.toAddUserCallback(userList);
       }
 
       const sendEmail = () => {
         emailjs.send('service_hhnf93h', 'template_z0dxy0e',
           {
-            from_name: "יאיר חן",
+            from_name: manager,
             customer_address: useremail,
             to_name: username,
           }, 'user_qMw5HuferY6tdn7CfelD1')
@@ -202,6 +204,7 @@ const Create = (props) => {
             pathname: `${value}/${cname}`,
             state: { cname: cname },
             compProps: {
+              managerName: manager,
               name: cname, type: value, userList: userList
             }
           }} >
@@ -210,7 +213,7 @@ const Create = (props) => {
       </div>
       <div className="create-profile">
         <img src={profile} className="profile-pic"></img>
-        <label className="profile-name">יאיר חן</label>
+        <label className="profile-name">{props.user.userName}</label>
         <label className="profile-name-props">מנהל התחרות</label>
         <Link to="/updateUser">
           <button className="edit-profile-text">ערוך פרופיל</button>
@@ -221,9 +224,13 @@ const Create = (props) => {
     </div>
   );
 }
+const mapStateToProps=(state)=>{
+  return{
+      user: state.user.user
+  }
+}
+export default connect(mapStateToProps)(Create); 
 
-
-export default Create;
 //https://dashboard.emailjs.com/admin/templates/hbl27zc
 //https://reactjs.org/docs/forms.html
 //https://dev.to/muhammadawaisshaikh/how-to-get-an-updated-state-of-child-component-in-the-parent-component-using-the-callback-method-1i5

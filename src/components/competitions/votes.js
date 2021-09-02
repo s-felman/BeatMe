@@ -11,6 +11,7 @@ const Votes=(props)=>{
     
       const comp={
         name: props.location.compProps.name,
+        manager: props.location.compProps.managerName,
         type:  props.location.compProps.type,
         userList:  props.location.compProps.userList,
         details: details,

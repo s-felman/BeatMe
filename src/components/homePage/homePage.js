@@ -1,17 +1,25 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import NavBar from "../navBar/navBar";
 import SlideShow from "../slideShow/slideShow";
 import ShowList from "../displayList/showList";
 import { Link } from 'react-router-dom';
-import MultiCarusel from "../slideShow/multiCarusel"
 import "./homePage.css";
-import Carousel from "../slideShow/multiCarusel";
 import FlexWrap from "../slideShow/flexBox"
+import {connect} from "react-redux";
 
 
 
+const HomePage = (props) => {
+    const [create, setCreate] = useState('/userlogin');
+    const [path, setPath]= useState('/userLogin')
+    //const [userName, setUserName]= useState("")
 
-const HomePage = () => {
+    useEffect(()=>{
+      if((props.user).length!=0){
+    setCreate(`/create/${props.user.userName}`)
+    setPath(`/participant/${props.user.userName}`)
+ }  
+    })
 
     return (
         <div>
@@ -26,11 +34,11 @@ const HomePage = () => {
                 <button className="select-type">מנהל תחרות
                 </button>
                 </Link>
-                <Link to="/userlogin">
+                <Link to={{pathname:`${path}`, state: { to: 'participant'}}} >
                 <button  className="animate__pulse" className="select-type">מתחרה פעיל
                 </button>
                 </Link>
-                <Link to="/create">
+                <Link  to={{pathname: `${create}`,state: { to: 'create'}}}>
                 <button className="animate__bounceIn select-type">יצירת תחרות
                 </button>
                 </Link>
@@ -59,5 +67,9 @@ const HomePage = () => {
 </div>
     )
 }
-
-export default HomePage
+const mapStateToProps=(state)=>{
+    return{
+        user: state.user.user
+    }
+}
+export default connect(mapStateToProps)(HomePage); 
