@@ -43,7 +43,6 @@ const UserLogin = (props) => {
         console.log("users->", props.user);
         // const  fetchFunc=async(username, password) =>{
         //     await  loginAPI(username,password)
-
         //  }
     }
 
