@@ -39,11 +39,12 @@ function onChange(nextValue) {
 Moment.locale('en');
 
 
-    return(<div className="">
+    return(<div className="comp-father-div">
       <NavBar></NavBar>
+      <div className="comp-div">
       <h1 className="comp-header-secondpage">{props.location.compProps.name}</h1>
         <CreateProps onchange={(e) => { onchange(e) }}></CreateProps>
-        <label> יעד סופי</label><br/>
+        <div className="comp-label-target">יעד סופי</div><br/>
         <input placeholder="פירוט" onChange={event => setTarget(event.target.value)}></input>
         <Calendar  onChange={onChange} value={value} calendarType="Hebrew" ></Calendar>
         <div placeholder="תאריך" onChange={event => setDate(event.target.value)}> {Moment(value).format('DD-MM-yyyy')} </div><br/>
@@ -51,6 +52,7 @@ Moment.locale('en');
         <button>date</button><br/>
         <textarea placeholder="פירוט משימת אמצע"></textarea><br/>
         <button onClick={()=>{addCompetitonAPI(JSON.stringify(comp))}}>התחל תחרות</button>
+    </div>
     </div>)
 }
 

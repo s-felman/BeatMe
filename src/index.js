@@ -9,10 +9,12 @@ import { createStore, applyMiddleware } from "redux"
 import reducers from "./reducers";
 import thunk from "redux-thunk";
 import 'react-calendar/dist/Calendar.css';
+
 const store= createStore(reducers, applyMiddleware(thunk));
 
+
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
   <React.StrictMode>
   <Provider store={store}>
     <App />

@@ -24,12 +24,12 @@ function App() {
   const[userName,setUserName]=useState("") //the current user name
 
   useEffect(() => {
-    fetch("http://localhost:3000/login?user=user1")
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => {
-        console.log("error", err);
-      });
+    // fetch("http://localhost:3000/login?user=user1")
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data))
+    //   .catch((err) => {
+    //     console.log("error", err);
+    //   });
       localStorage.setItem("user",'undefined');
 
   }, []);
